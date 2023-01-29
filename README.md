@@ -1,0 +1,1 @@
+# spartalks-graphql
