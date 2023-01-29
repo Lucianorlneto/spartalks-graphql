@@ -1,0 +1,48 @@
+type Character{
+    id: ID!
+    name: String!
+    gender: String!
+    age: String!
+    image: String!
+    games: [Game]
+}
+
+type Game{
+    id: ID!
+    name: String!
+    platform: String!
+    date: String!
+    image: String!
+    playableCharacters: [Character]
+    characters: [Character]
+}
+
+type Test{
+    text: String
+    textAux: String
+}
+
+type Query{
+    test: Test
+    games: [Game]
+    game(id: String!): Game
+    characters: [Character]
+    character(id: String!): Character
+}
+
+input NewCharacterGameInput{
+    id: String!
+    isPlayable: Boolean!
+}
+
+input NewCharacterInput{
+    name: String!
+    gender: String!
+    age: String!
+    image: String!
+    games: [NewCharacterGameInput]
+}
+
+type Mutation{
+    createCharacter(input: NewCharacterInput): Character
+}
